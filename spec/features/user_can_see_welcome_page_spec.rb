@@ -5,7 +5,7 @@ describe "as a guest user" do
     it "loads the welcome page with google sign in link" do
       visit '/'
 
-      expect(page).to have_link("Sign In With Google")
+      expect(page).to have_link("Sign in with Google")
     end
   end
 end
