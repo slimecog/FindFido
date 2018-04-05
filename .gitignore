@@ -29,3 +29,6 @@
 
 # ignore balsamiq wireframe
 Find_Fido.bmpr
+
+# ignore precompiled assets
+public/assets

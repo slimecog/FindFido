@@ -3,12 +3,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :welcome, only: [:show]
+  get '/dashboard', to: 'dashboard#show'
 
   #oauth handrolls
   get 'auth/:provider/callback', to: 'sessions#create'
-  # get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
-
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
