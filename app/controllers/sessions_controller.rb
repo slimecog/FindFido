@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    if
-      user = User.from_omniauth(request.env['omniauth.auth'])
+    if user = User.from_omniauth(request.env['omniauth.auth'])
       session[:user_id] = user.id
       redirect_to dashboard_path
     else

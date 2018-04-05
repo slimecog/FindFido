@@ -12,13 +12,18 @@
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-      <a href="/" class="w3-bar-item w3-button"><b>Find Fido</b></a>
-      <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
+      <% if !current_user %>
+        <a href="/" class="w3-bar-item w3-button"><b>Find Fido</b></a>
+      <% else %>
+        <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
+      <% end %>
+
+      <!-- Float links to the right -->
+      <div class="w3-right">
         <% if !current_user %>
           <a href="/auth/google_oauth2" class="w3-bar-item w3-button">Sign in with Google</a>
         <% else %>
-          <p class="w3-bar-item w3-button">Signed in as <strong><%= current_user.name %></strong>!</p>
+          <p id='google-flash' class="w3-bar-item w3-button">Signed in as <strong><%= current_user.name %></strong>!</p>
           <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
         <% end %>
       </div>
