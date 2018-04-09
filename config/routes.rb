@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :welcome, only: [:show]
+  resources :shelters, only: [:index]
+
   get '/dashboard', to: 'dashboard#show'
 
   #oauth handrolls

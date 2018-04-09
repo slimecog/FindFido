@@ -28,6 +28,7 @@ gem 'faraday'
 gem "omniauth-google-oauth2"
 gem 'owlcarousel-rails'
 gem 'leaflet-rails'
+gem 'geocoder'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
