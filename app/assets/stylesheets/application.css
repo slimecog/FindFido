@@ -16,7 +16,7 @@
  *= require owl.theme
  */
 
- 
+
 
 body {
  margin: 0;
@@ -49,7 +49,7 @@ html, body {
   margin-bottom: 0%;
 }
 
-#mapid {
+#map {
   height: 500px;
   width: 750px;
   left: 1%;

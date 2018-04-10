@@ -43,7 +43,6 @@
         <!-- </div> -->
       </div>
 
-
       <!-- Carousel -->
       <!-- <div class="owl-carousel">
         <div class="item"><img src="https://i.imgur.com/u0VyOPK.png" alt="doggo"> </div>
@@ -52,37 +51,25 @@
       </div> -->
 
       <!-- <script type="text/javascript">
-    $(document).ready(function() {
-    $(".owl-carousel").owlCarousel({
-    navigation: true, // Show next and prev buttons
-    slideSpeed: 300,
-    paginationSpeed: 400,
-    singleItem: true -->
-    <!-- // "singleItem:true" is a shortcut for:
-    // items : 1,
-    // itemsDesktop : false,
-    // itemsDesktopSmall : false,
-    // itemsTablet: false,
-    // // itemsMobile : false
-    // });
-    // });
-    // </script> -->
+        $(document).ready(function() {
+        $(".owl-carousel").owlCarousel({
+        navigation: true, // Show next and prev buttons
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        singleItem: true -->
+        <!-- // "singleItem:true" is a shortcut for:
+        // items : 1,
+        // itemsDesktop : false,
+        // itemsDesktopSmall : false,
+        // itemsTablet: false,
+        // // itemsMobile : false
+        // });
+        // });
+      // </script> -->
 
       <!-- leaflet Map -->
-      <div id="mapid"></div>
+      <div id="map"></div>
 
-      <script type="text/javascript">
-        var mymap = L.map('mapid').setView([39.733666, -104.979863], 15);
-      </script>
-
-      <script type="text/javascript">
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoid2xjam9obnNvbiIsImEiOiJjamZqd2l6eXowZjE5MndwbXo5YzV6OGs3In0.VvmeHkdhxbIUjl7HHRiNhw', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.emerald',
-        accessToken: 'your.mapbox.access.token'
-        }).addTo(mymap);
-      </script>
     </div>
 
   <!-- End page content -->
@@ -98,10 +85,52 @@
     </div>
   </div>
 
-  <!--
-  To use this code on your website, get a free API key from Google.
-  Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-  -->
+  <script>
+     // Note: This example requires that you consent to location sharing when
+     // prompted by your browser. If you see the error "The Geolocation service
+     // failed.", it means you probably did not give permission for the browser to
+     // locate you.
+     var map, infoWindow;
+     function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: -34.397, lng: 150.644},
+         zoom: 6
+       });
+       infoWindow = new google.maps.InfoWindow;
+
+       // Try HTML5 geolocation.
+       if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(function(position) {
+           var pos = {
+             lat: position.coords.latitude,
+             lng: position.coords.longitude
+           };
+
+           infoWindow.setPosition(pos);
+           infoWindow.setContent('Location found.');
+           infoWindow.open(map);
+           map.setCenter(pos);
+         }, function() {
+           handleLocationError(true, infoWindow, map.getCenter());
+         });
+       } else {
+         // Browser doesn't support Geolocation
+         handleLocationError(false, infoWindow, map.getCenter());
+       }
+     }
+
+     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+       infoWindow.setPosition(pos);
+       infoWindow.setContent(browserHasGeolocation ?
+                             'Error: The Geolocation service failed.' :
+                             'Error: Your browser doesn\'t support geolocation.');
+       infoWindow.open(map);
+     }
+   </script>
+
+   <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
+   </script>
 
   </body>
 </html>
