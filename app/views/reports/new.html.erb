@@ -1,16 +1,11 @@
-<%= form_for @report do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.label :category_id %>
-  <%= f.collection_select(:category_id, Category.order(:title), :id, :title) %>
-  <%= f.submit %> <br>
-  <%= f.label "Add images by clicking check boxes below." %>
-  <div id="image-box">
-    <% Image.all.each do |image| %>
-      <%= check_box_tag "images[]", image.id %> <br>
-      <%= image_tag image.url %> <br>
-    <% end %>
-  </div>
+<%= form_for new_report_path do |f| %>
+  <%= f.label :street %>
+  <%= f.text_field :street %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :zip %>
+  <%= f.text_field :zip %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "Report"%>
 <% end %>

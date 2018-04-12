@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :welcome, only: [:show]
   resources :shelters, only: [:index]
+  resources :reports, only: [:new, :create, :index]
 
   get '/dashboard', to: 'dashboard#show'
-  get '/report', to: 'reports#new'
 
   #oauth handrolls
   get 'auth/google_oauth2/callback', to: 'sessions#create'
