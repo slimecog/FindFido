@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :welcome, only: [:show]
   resources :shelters, only: [:index]
   resources :reports, only: [:new, :create, :index]
+  post '/reports/new', to: 'reports#create'
 
   get '/dashboard', to: 'dashboard#show'
 

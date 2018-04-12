@@ -5,16 +5,19 @@ class ReportsController < ApplicationController
 
   def create
     report = Report.new(report_params)
-    if report.save
+    if report.save!
       redirect_to reports_path, success: "Report successfully saved - Thank you!"
     else
       render :new, danger: "Something went wrong - Try again?"
     end
   end
 
-  private
+  def index
+    @reports = Report.all
+  end
 
+  private
     def report_params
-      params.require(:street, :city, :zip, :description)
+      params.require(:report).permit(:street, :city, :zip, :description)
     end
 end
