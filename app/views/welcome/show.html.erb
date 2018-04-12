@@ -9,107 +9,87 @@
 
   <body>
 
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-      <% if !current_user %>
-        <a href="/" class="w3-bar-item w3-button"><b>Find Fido</b></a>
-      <% else %>
-        <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
-      <% end %>
-
-      <!-- Float links to the right -->
-      <div class="w3-right">
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
         <% if !current_user %>
-          <a href="/auth/google_oauth2" class="w3-bar-item w3-button">Sign in with Google</a>
+          <a href="/" class="w3-bar-item w3-button"><b>Find Fido</b></a>
         <% else %>
-          <p id='google-flash' class="w3-bar-item w3-button">Signed in as <strong><%= current_user.name %></strong>!</p>
-          <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
+          <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
         <% end %>
-      </div>
-    </div>
-  </div>
 
-  <!-- Page content -->
-  <div class="w3-content w3-padding" style="max-width:1564px">
-
-    <!-- Welcome Section -->
-    <div class="w3-container w3-padding-32" id="welcome">
-      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Find Fido Welcomes You</h3>
-    </div>
-
-    <div class="main-split">
-      <!-- About Section -->
-      <div class="w3-container w3-padding-32" id="about">
-        <p>Find Fido is a platform for alerting your community when you find a lost dog or cat. With Find Fido you can place a marker on a map along with a photo that pet owners can view wherever you find a lost pet. With your help, more families can be reunited with their lost loved ones. Sign in with Google to help Find Fido!</p>
-        <br>
-        <!-- photos (want a carousel but not for now i guess) -->
-        <div class="photos">
-          <img src="https://i.imgur.com/u0VyOPK.png" alt="doggo">
-          <!-- <img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter">
-          <img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> -->
+        <!-- Float links to the right -->
+        <div class="w3-right">
+          <% if !current_user %>
+            <a href="/auth/google_oauth2" class="w3-bar-item w3-button">Sign in with Google</a>
+          <% else %>
+            <p id='google-flash' class="w3-bar-item w3-button">Signed in as <strong><%= current_user.name %></strong>!</p>
+            <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
+          <% end %>
         </div>
       </div>
-
-
-      <!-- Carousel -->
-      <!-- <div class="owl-carousel">
-        <div class="item"><img src="https://i.imgur.com/u0VyOPK.png" alt="doggo"> </div>
-        <div class="item"><img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter"> </div>
-        <div class="item"><img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> </div>
-      </div> -->
-
-      <!-- <script type="text/javascript">
-    $(document).ready(function() {
-    $(".owl-carousel").owlCarousel({
-    navigation: true, // Show next and prev buttons
-    slideSpeed: 300,
-    paginationSpeed: 400,
-    singleItem: true -->
-    <!-- // "singleItem:true" is a shortcut for:
-    // items : 1,
-    // itemsDesktop : false,
-    // itemsDesktopSmall : false,
-    // itemsTablet: false,
-    // // itemsMobile : false
-    // });
-    // });
-    // </script> -->
-
-      <!-- leaflet Map -->
-      <div id="mapid"></div>
-
-      <script type="text/javascript">
-        var mymap = L.map('mapid').setView([39.733666, -104.979863], 15);
-      </script>
-
-      <script type="text/javascript">
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoid2xjam9obnNvbiIsImEiOiJjamZqd2l6eXowZjE5MndwbXo5YzV6OGs3In0.VvmeHkdhxbIUjl7HHRiNhw', {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom: 18,
-        id: 'mapbox.emerald',
-        accessToken: 'your.mapbox.access.token'
-        }).addTo(mymap);
-      </script>
     </div>
 
-  <!-- End page content -->
-  </div>
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
+
+      <!-- Welcome Section -->
+      <div class="w3-container w3-padding-32" id="welcome">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Find Fido Welcomes You</h3>
+      </div>
+
+      <div class="main-split">
+        <!-- About Section -->
+        <div class="w3-container w3-padding-32" id="about">
+          <p>Find Fido is a platform for alerting your community when you find a lost dog or cat. With Find Fido you can place a marker on a map along with a photo that pet owners can view wherever you find a lost pet. With your help, more families can be reunited with their lost loved ones. Sign in with Google to help Find Fido!</p>
+          <br>
+          <!-- photos (want a carousel but not for now i guess) -->
+          <div class="photos">
+            <img src="https://i.imgur.com/u0VyOPK.png" alt="doggo">
+            <!-- <img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter">
+            <img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> -->
+          </div>
+        </div>
 
 
-  <!-- Footer -->
-  <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
-    <div class="w3-left w3-hide-small">
-        <a href="#about" class="w3-bar-item w3-button">About</a>
-        <a href="#help" class="w3-bar-item w3-button">Help</a>
-        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        <!-- Carousel -->
+        <!-- <div class="owl-carousel">
+          <div class="item"><img src="https://i.imgur.com/u0VyOPK.png" alt="doggo"> </div>
+          <div class="item"><img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter"> </div>
+          <div class="item"><img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> </div>
+        </div> -->
+
+        <!-- google Map -->
+        <div id="map"></div>
+      </div>
+    <!-- End page content -->
     </div>
-  </div>
 
-  <!--
-  To use this code on your website, get a free API key from Google.
-  Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
-  -->
+    <!-- Footer -->
+    <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
+      <div class="w3-left w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#help" class="w3-bar-item w3-button">Help</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      </div>
+    </div>
+
+    <!-- basic google maps centered on caphill area -->
+    <script>
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.7334616, lng: -104.9824661},
+          zoom: 15
+        });
+        infoWindow = new google.maps.InfoWindow;
+      }
+    </script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
+    </script>
+
 
   </body>
 </html>

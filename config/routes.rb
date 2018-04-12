@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :shelters, only: [:index]
 
   get '/dashboard', to: 'dashboard#show'
+  get '/report', to: 'reports#new'
 
   #oauth handrolls
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/google_oauth2/callback', to: 'sessions#create'
   get 'signout', to: 'sessions#destroy', as: 'signout'
 end

@@ -12,5 +12,4 @@
 //
 //= require rails-ujs
 //= require owl.carousel
-//= require leaflet
 //= require_tree .

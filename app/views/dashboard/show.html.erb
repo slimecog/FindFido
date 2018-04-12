@@ -9,128 +9,94 @@
 
   <body>
 
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-      <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
-      <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right">
-          <p id='google-flash' class="w3-bar-item">Signed in as <strong><%= current_user.name %></strong>!</p>
-          <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right">
+            <p id='google-flash' class="w3-bar-item">Signed in as <strong><%= current_user.name %></strong>!</p>
+            <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Page content -->
-  <div class="w3-content w3-padding" style="max-width:1564px">
+    <!-- Page content -->
+    <div class="w3-content w3-padding" style="max-width:1564px">
 
-    <!-- Welcome Section -->
-    <div class="w3-container w3-padding-32" id="welcome">
-      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Find Fido Welcomes You</h3>
-    </div>
-
-    <div class="main-split">
-      <!-- About Section -->
-      <div class="w3-container w3-padding-32" id="about">
-        <p>Animal shelters are very important because they care for abandoned or neglected animals. They provide temporary homes for animals on the street. They also provide heath for sick wounded animals.</p>
-        <a href='shelters' class="w3-bar-item">Shelters Near Me</a>
-        <br>
-        <!-- photos (want a carousel but not for now i guess) -->
-        <!-- <div class="photos">
-          <img src="https://i.imgur.com/u0VyOPK.png" alt="doggo"> -->
-          <!-- <img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter">
-          <img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> -->
-        <!-- </div> -->
+      <!-- Welcome Section -->
+      <div class="w3-container w3-padding-32" id="welcome">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Find Fido Welcomes You</h3>
       </div>
 
-      <!-- Carousel -->
-      <!-- <div class="owl-carousel">
-        <div class="item"><img src="https://i.imgur.com/u0VyOPK.png" alt="doggo"> </div>
-        <div class="item"><img src="https://i.imgur.com/1LJslYJ.jpg" alt="kitter"> </div>
-        <div class="item"><img src="https://i.imgur.com/ZmzR97C.png" alt="doggo"> </div>
-      </div> -->
+      <div class="main-split">
+        <!-- About Section -->
+        <div class="w3-container w3-padding-32" id="about">
+          <p>Did you Find Fido? Report a found animal by clicking the link below!</p>
+          <a href='report' class="w3-bar-item">Report Found Pet</a>
+          <br>
+          <br>
+          <p>Animal shelters are very important because they care for abandoned or neglected animals. They provide temporary homes for animals on the street. They also provide heath for sick wounded animals.</p>
+          <a href='shelters' class="w3-bar-item">Shelters Near Me</a>
+        </div>
 
-      <!-- <script type="text/javascript">
-        $(document).ready(function() {
-        $(".owl-carousel").owlCarousel({
-        navigation: true, // Show next and prev buttons
-        slideSpeed: 300,
-        paginationSpeed: 400,
-        singleItem: true -->
-        <!-- // "singleItem:true" is a shortcut for:
-        // items : 1,
-        // itemsDesktop : false,
-        // itemsDesktopSmall : false,
-        // itemsTablet: false,
-        // // itemsMobile : false
-        // });
-        // });
-      // </script> -->
-
-      <!-- leaflet Map -->
-      <div id="map"></div>
-
+        <!-- google Map -->
+        <div id="map"></div>
+      </div>
+    <!-- End page content -->
     </div>
 
-  <!-- End page content -->
-  </div>
-
-
-  <!-- Footer -->
-  <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
-    <div class="w3-left w3-hide-small">
-        <a href="#about" class="w3-bar-item w3-button">About</a>
-        <a href="#help" class="w3-bar-item w3-button">Help</a>
-        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    <!-- Footer -->
+    <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
+      <div class="w3-left w3-hide-small">
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#help" class="w3-bar-item w3-button">Help</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      </div>
     </div>
-  </div>
 
-  <script>
-     // Note: This example requires that you consent to location sharing when
-     // prompted by your browser. If you see the error "The Geolocation service
-     // failed.", it means you probably did not give permission for the browser to
-     // locate you.
-     var map, infoWindow;
-     function initMap() {
-       map = new google.maps.Map(document.getElementById('map'), {
-         center: {lat: -34.397, lng: 150.644},
-         zoom: 15
-       });
-       infoWindow = new google.maps.InfoWindow;
+    <script>
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.7334616, lng: -104.9824661},
+          zoom: 15
+        });
+        infoWindow = new google.maps.InfoWindow;
 
-       // Try HTML5 geolocation.
-       if (navigator.geolocation) {
-         navigator.geolocation.getCurrentPosition(function(position) {
-           var pos = {
-             lat: position.coords.latitude,
-             lng: position.coords.longitude
-           };
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
 
-           infoWindow.setPosition(pos);
-           infoWindow.setContent('Location found.');
-           infoWindow.open(map);
-           map.setCenter(pos);
-         }, function() {
-           handleLocationError(true, infoWindow, map.getCenter());
-         });
-       } else {
-         // Browser doesn't support Geolocation
-         handleLocationError(false, infoWindow, map.getCenter());
-       }
-     }
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Your location.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
 
-     function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-       infoWindow.setPosition(pos);
-       infoWindow.setContent(browserHasGeolocation ?
-                             'Error: The Geolocation service failed.' :
-                             'Error: Your browser doesn\'t support geolocation.');
-       infoWindow.open(map);
-     }
-   </script>
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
+        }
+    </script>
 
-   <script async defer
-   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
-   </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
+    </script>
 
   </body>
 </html>
