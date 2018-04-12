@@ -45,6 +45,11 @@ html, body {
   display: flex;
 }
 
+.main-split-report {
+  display: flex;
+  justify-content: center;
+}
+
 .w3w3-black {
   margin-bottom: 0%;
 }
@@ -69,6 +74,11 @@ img {
 
 #google-flash {
   margin: 0em;
+}
+
+#report-form {
+  margin-right: 7em;
+  margin-top: 7em;
 }
 
 .owl-carousel {
