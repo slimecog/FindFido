@@ -1,7 +1,4 @@
 class User < ActiveRecord::Base
-  # geocoded_by :full_street_address
-  # after_validation :geocode
-
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -12,8 +9,4 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
-
-  # def full_street_address
-  #   street + " " + city + " " + zip
-  # end
 end
