@@ -37,8 +37,11 @@
           <br>
           <br>
           <br>
+          <h4>All Found Pets</h4>
+          <h6>Click any report address below to view it on the map.</h6>
           <% @reports.each do |report| %>
-            Location: <%= report.full_street_address %>
+          <%= link_to "Location: #{report.full_street_address}", report_path(report.id), class: 'w3-bar-item' %>
+
             <br>
             Description: <%= report.description %>
             <br>

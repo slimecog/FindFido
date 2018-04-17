@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def report_coordinates
-    @report_coordinates ||= Report.all.reduce(Array.new) do |memo, report|
+    @report_coordinates ||= Report.where(found: false).reduce(Array.new) do |memo, report|
       memo << [report.geocode].flatten
       memo
     end

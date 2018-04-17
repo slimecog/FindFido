@@ -4,14 +4,27 @@ class Shelter
               :email,
               :address,
               :city,
-              :zip
+              :zip,
+              :latitude,
+              :longitude
 
   def initialize(attrs = {})
-    @name = attrs[:name]
-    @phone = attrs[:phone]
-    @email = attrs[:email]
-    @address = attrs[:address]
-    @city = attrs[:city]
-    @zip = attrs[:zip]
+    require "pry"; binding.pry
+    @name      = attrs[:name][:$t]
+    @phone     = attrs[:phone][:$t]
+    @email     = attrs[:email][:$t]
+    @address   = attrs[:address1][:$t]
+    @city      = attrs[:city][:$t]
+    @zip       = attrs[:zip][:$t]
+    @latitude  = attrs[:latitude][:$t]
+    @longitude = attrs[:longitude][:$t]
+  end
+
+  def mailing_address
+    if @address
+      @address + ' ' + @city + ' ' + @state
+    else
+      @city + ' ' + @state
+    end
   end
 end

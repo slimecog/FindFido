@@ -35,23 +35,23 @@
           <p>Reporting a found pet is easy! Just fill out the form below with the street address nearest the animal (if you're not sure what the address is, it is okay to estimate). Then enter a description of the animal and click Report.</p>
           <div id="report-form">
             <%= form_for @report do |f| %>
-            <%= f.label :street %>
-            <br>
-            <%= f.text_field :street %>
-            <br>
-            <%= f.label :city %>
-            <br>
-            <%= f.text_field :city %>
-            <br>
-            <%= f.label :zip %>
-            <br>
-            <%= f.text_field :zip %>
-            <br>
-            <%= f.label :description %>
-            <br>
-            <%= f.text_area :description %>
-            <br>
-            <%= f.submit "Report"%>
+              <%= f.label :street %>
+              <br>
+              <%= f.text_field :street %>
+              <br>
+              <%= f.label :city %>
+              <br>
+              <%= f.text_field :city %>
+              <br>
+              <%= f.label :zip %>
+              <br>
+              <%= f.text_field :zip %>
+              <br>
+              <%= f.label :description %>
+              <br>
+              <%= f.text_area :description %>
+              <br>
+              <%= f.submit "Report"%>
             <% end %>
           </div>
         </div>

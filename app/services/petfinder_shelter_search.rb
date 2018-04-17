@@ -1,27 +1,17 @@
 class PetfinderShelterSearch
-
-  def initialize(location)
-    @location = location
+  def initialize(zipcode)
+    @zipcode = zipcode
   end
 
   def run
-    get_json("/shelter.find")
+    get_json("shelter.find?key=#{ENV['PETFINDER_API_KEY']}&location=#{zipcode}&format=json&count=10")
   end
 
   private
-    attr_reader :location
+    attr_reader :zipcode
 
     def conn
-      Faraday.new("http://api.petfinder.com/", params: params)
-    end
-
-    def params
-      {
-        'key' => ENV['PETFINDER_API_KEY'],
-        "location" => @location,
-        "format" => "json",
-        "count" => "10"
-      }
+      Faraday.new("http://api.petfinder.com/")
     end
 
     def get_json(url)
