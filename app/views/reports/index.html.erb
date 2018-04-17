@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
-    </script>
   </head>
 
   <body>
@@ -18,7 +15,7 @@
         <a href="/dashboard" class="w3-bar-item w3-button"><b>Find Fido</b></a>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right">
-            <p id='google-flash' class="w3-bar-item">Signed in as !</p>
+            <p id='google-flash' class="w3-bar-item">Signed in as <strong><%= current_user.name %></strong>!</p>
             <a href='signout' class="w3-bar-item w3-button">Sign Out</a>
         </div>
       </div>
@@ -35,10 +32,15 @@
       <div class="main-split-report">
         <!-- report entry -->
         <div class="w3-container w3-padding-32" id="about">
-          <% @coordinates.each do |coordinate| %>
-            lat: <%= coordinate[0] %>
+          <p>Did you Find Fido? Report a found animal by clicking the link below!</p>
+          <a href='reports/new' class="w3-bar-item">Report Found Pet</a>
+          <br>
+          <br>
+          <br>
+          <% @reports.each do |report| %>
+            Location: <%= report.full_street_address %>
             <br>
-            lon: <%= coordinate[1] %>
+            Description: <%= report.description %>
             <br>
             <br>
           <% end %>
@@ -58,33 +60,68 @@
           <a href="#contact" class="w3-bar-item w3-button">Contact</a>
       </div>
     </div>
+
     <!-- map setup -->
     <script>
-      var coordinates = <%= @coordinates %>;
-      // var descriptions = <%= @descriptions.map { |description| description } %>;
-
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
-        center: new google.maps.LatLng(<%= @coordinates.last[0] %>, <%= @coordinates.last[1] %>),
-      });
-
-      var infowindow = new google.maps.InfoWindow();
-
-      var marker, i;
-
-      for (i = 0; i < coordinates.length; i++) {
-        marker = new google.maps.Marker({
-          position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
-          map: map
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.7334616, lng: -104.9824661},
+          zoom: 15
         });
+        infoWindow = new google.maps.InfoWindow;
 
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent('Pet found here!');
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Your location.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+        // place any existing markers
+        var coordinates = <%= report_coordinates %>;
+        var marker, i;
+
+        for (i = 0; i < coordinates.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
+            map: map
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent('Pet found here!');
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
       }
     </script>
+
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
+    </script>
+
   </body>
 </html>

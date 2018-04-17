@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user
+  helper_method :report_coordinates
 
   add_flash_types :success, :info, :warning, :danger
 
@@ -10,5 +11,12 @@ class ApplicationController < ActionController::Base
 
   def require_user
     render file: "/public/404" unless current_user
+  end
+
+  def report_coordinates
+    @report_coordinates ||= Report.all.reduce(Array.new) do |memo, report|
+      memo << [report.geocode].flatten
+      memo
+    end
   end
 end

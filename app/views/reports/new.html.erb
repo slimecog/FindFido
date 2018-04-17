@@ -72,8 +72,8 @@
     </div>
 
     <!-- map setup -->
+    <!-- basic google maps centered on caphill area -->
     <script>
-      // default map load in denver caphill
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -101,6 +101,24 @@
           // Browser doesn't support Geolocation
           handleLocationError(false, infoWindow, map.getCenter());
         }
+
+        // place any existing markers
+        var coordinates = <%= report_coordinates %>;
+        var marker, i;
+
+        for (i = 0; i < coordinates.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(coordinates[i][0], coordinates[i][1]),
+            map: map
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent('Pet found here!');
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
       }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -109,10 +127,9 @@
           'Error: The Geolocation service failed.' :
           'Error: Your browser doesn\'t support geolocation.');
           infoWindow.open(map);
-        }
+      }
     </script>
 
-    <%# TODO: GET THIS KEY OUTTA HERE!! %>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
     </script>
