@@ -30,9 +30,11 @@
       </div>
 
       <div class="main-split-report">
-        <!-- About Section -->
-        <div class="w3-container w3-padding-32" id="report-form">
-          <%= form_for @report do |f| %>
+        <!-- report entry -->
+          <div class="w3-container w3-padding-32" id="about">
+          <p>Reporting a found pet is easy! Just fill out the form below with the street address nearest the animal (if you're not sure what the address is, it is okay to estimate). Then enter a description of the animal and click Report.</p>
+          <div id="report-form">
+            <%= form_for @report do |f| %>
             <%= f.label :street %>
             <br>
             <%= f.text_field :street %>
@@ -50,7 +52,8 @@
             <%= f.text_area :description %>
             <br>
             <%= f.submit "Report"%>
-          <% end %>
+            <% end %>
+          </div>
         </div>
 
         <!-- google Map -->
@@ -68,7 +71,9 @@
       </div>
     </div>
 
+    <!-- map setup -->
     <script>
+      // default map load in denver caphill
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -107,6 +112,7 @@
         }
     </script>
 
+    <%# TODO: GET THIS KEY OUTTA HERE!! %>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
     </script>

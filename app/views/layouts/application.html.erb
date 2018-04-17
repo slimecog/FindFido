@@ -3,7 +3,7 @@
   <head>
     <title>FindFido</title>
     <%= csrf_meta_tags %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
@@ -11,13 +11,13 @@
 
   <body>
 
-      <main class="main-container" id="flashes">
-        <% flash.each do |type, message| %>
-          <%= content_tag :div, message.html_safe, class: "alert alert-#{type}" %>
-        <% end %>
-      </main>
 
     <%= yield %>
+    <main class="main-container" id="flashes">
+      <% flash.each do |type, message| %>
+      <%= content_tag :div, message.html_safe, class: "alert alert-#{type}" %>
+      <% end %>
+    </main>
 
   </body>
 </html>

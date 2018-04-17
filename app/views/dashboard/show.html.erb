@@ -30,7 +30,7 @@
       </div>
 
       <div class="main-split">
-        <!-- About Section -->
+        <!-- action Section -->
         <div class="w3-container w3-padding-32" id="about">
           <p>Did you Find Fido? Report a found animal by clicking the link below!</p>
           <a href='reports/new' class="w3-bar-item">Report Found Pet</a>
@@ -56,6 +56,7 @@
     </div>
 
     <script>
+      // set map default
       var map, infoWindow;
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -71,6 +72,7 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Your location.');
@@ -94,6 +96,7 @@
         }
     </script>
 
+    <%# TODO: GET THIS KEY OUTTA HERE!! %>
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
     </script>
