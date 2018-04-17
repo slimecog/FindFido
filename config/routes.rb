@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :welcome, only: [:show]
-  resources :shelters, only: [:index]
+  resources :shelters, only: [:index, :show]
   resources :reports, only: [:new, :create, :index, :show]
   resources :found, only: [:show]
   resources :users, only: [:update]

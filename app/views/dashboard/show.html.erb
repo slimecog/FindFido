@@ -40,6 +40,8 @@
           <a href='reports/new' class="w3-bar-item">Report Found Pet</a>
           <br>
           <br>
+          <br>
+          <br>
           <p>Animal shelters are very important because they care for abandoned or neglected animals. They provide temporary homes for animals on the street. They also provide heath for sick wounded animals.</p>
           <div id="report-form">
             <%= form_for @current_user, method: :PUT do |f| %>
@@ -61,9 +63,9 @@
     <!-- Footer -->
     <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
       <div class="w3-left w3-hide-small">
-          <a href="#about" class="w3-bar-item w3-button">About</a>
-          <a href="#help" class="w3-bar-item w3-button">Help</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        <a href='reports' class="w3-bar-item w3-button">View All Found Pets</a>
+        <a href='reports/new' class="w3-bar-item w3-button">Report Found Pet</a>
+        <a href='dashboard' class="w3-bar-item w3-button">Shelters Near Me</a>
       </div>
     </div>
 
@@ -109,8 +111,8 @@
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infowindow.setContent('Pet found here!');
-              infowindow.open(map, marker);
+              infoWindow.setContent('Pet found here!');
+              infoWindow.open(map, marker);
             }
           })(marker, i));
         }

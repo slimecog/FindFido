@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnxenjTzcyUby5I4LgfYb2ENp8S5WG1aE&callback=initMap">
-    </script>
-
   </head>
 
   <body>
@@ -37,21 +33,20 @@
         <!-- report entry -->
         <div class="w3-container w3-padding-32" id="about">
           <p>Did you Find Fido? Report a found animal by clicking the link below!</p>
-          <%= link_to "Report Found Pet", new_report_path, class: 'w3-bar-item' %>
-          <br>
-          <br>
-          <%= link_to "Back to All Found Pets", reports_path, class: 'w3-bar-item' %>
+          <a href='reports/new' class="w3-bar-item">Report Found Pet</a>
           <br>
           <br>
           <br>
-          <h4>Currently Viewing a Report</h4>
-          <h6>If this is your pet and you have found them, click 'Found!' below!</h6>
-          <%= link_to "Found!", "/found/#{@report.id}", class: 'w3-bar-item' %>
+          <h4>Currently Viewing a Shelter</h4>
+          Name: <%= @shelter.name %>
+          <br>
+          Phone: <%= @shelter.phone %>
+          <br>
+          Email: <%= @shelter.email %>
+          <br>
+          Address: <%= @shelter.mailing_address %>
           <br>
           <br>
-          Location: <%= @report.full_street_address %>
-          <br>
-          Description: <%= @report.description %>
         </div>
 
         <!-- google Map -->
@@ -72,12 +67,10 @@
     <!-- map setup -->
     <script>
       var map, infoWindow;
-      var coordinates = <%= @single_report_coordinates %>;
-
-      // center map on report requested
+      var coordinates = [<%= @shelter.latitude %>, <%= @shelter.longitude %>];
       function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: <%= @single_report_coordinates[0] %>, lng: <%= @single_report_coordinates[1] %>},
+          center: {lat: coordinates[0], lng: coordinates[1]},
           zoom: 15
         });
         infoWindow = new google.maps.InfoWindow;
@@ -93,11 +86,19 @@
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infoWindow.setContent('Pet found here!');
+              infoWindow.setContent('Shelter found here!');
               infoWindow.open(map, marker);
             }
           })(marker, i));
         }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+          'Error: The Geolocation service failed.' :
+          'Error: Your browser doesn\'t support geolocation.');
+          infoWindow.open(map);
       }
     </script>
 

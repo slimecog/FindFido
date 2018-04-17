@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+W<!DOCTYPE html>
 <html>
   <head>
     <title>Find Fido</title>
@@ -58,9 +58,9 @@
     <!-- Footer -->
     <div id="footer" class="w3-bar w3-black w3-wide w3-padding w3-card">
       <div class="w3-left w3-hide-small">
-          <a href="#about" class="w3-bar-item w3-button">About</a>
-          <a href="#help" class="w3-bar-item w3-button">Help</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        <a href='reports' class="w3-bar-item w3-button">View All Found Pets</a>
+        <a href='reports/new' class="w3-bar-item w3-button">Report Found Pet</a>
+        <a href='dashboard' class="w3-bar-item w3-button">Shelters Near Me</a>
       </div>
     </div>
 
@@ -106,8 +106,8 @@
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-              infowindow.setContent('Pet found here!');
-              infowindow.open(map, marker);
+              infoWindow.setContent('Pet found here!');
+              infoWindow.open(map, marker);
             }
           })(marker, i));
         }
