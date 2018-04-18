@@ -1,0 +1,387 @@
+{
+    "@encoding": "iso-8859-1",
+    "@version": "1.0",
+    "petfinder": {
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "lastOffset": {
+            "$t": "10"
+        },
+        "shelters": {
+            "shelter": [
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-104.9842"
+                    },
+                    "name": {
+                        "$t": "Saving Dobermankind Animal Rescue"
+                    },
+                    "phone": {
+                        "$t": "(720) 722-4277"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "hookedondobies@gmail.com"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80250"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7392"
+                    },
+                    "id": {
+                        "$t": "CO453"
+                    },
+                    "address1": {}
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-104.9656"
+                    },
+                    "name": {
+                        "$t": "PawsCo"
+                    },
+                    "phone": {},
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "adopt@pawscoadoptions.org"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80205"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7588"
+                    },
+                    "id": {
+                        "$t": "CO425"
+                    },
+                    "address1": {
+                        "$t": "P.O. Box 6261"
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-105.0198"
+                    },
+                    "name": {
+                        "$t": "Friends of Todd"
+                    },
+                    "phone": {},
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "rescue@friendsoftodd.org"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80211"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7664"
+                    },
+                    "id": {
+                        "$t": "CO460"
+                    },
+                    "address1": {}
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-105.0465"
+                    },
+                    "name": {
+                        "$t": "Planet Pet"
+                    },
+                    "phone": {
+                        "$t": "(720) 937-0633"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "planetpetdenver@gmail.com"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80212"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7701"
+                    },
+                    "id": {
+                        "$t": "CO220"
+                    },
+                    "address1": {
+                        "$t": "4595 Harlan St"
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-104.9653"
+                    },
+                    "name": {
+                        "$t": "Golden Retriever Freedom Rescue Inc."
+                    },
+                    "phone": {
+                        "$t": "303-749-8499   "
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "staff@goldenretrieverfreedom.org"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80209"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7068"
+                    },
+                    "id": {
+                        "$t": "CO178"
+                    },
+                    "address1": {
+                        "$t": "PO Box 103130"
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-104.9653"
+                    },
+                    "name": {
+                        "$t": "HO-BO Care Boxer Rescue"
+                    },
+                    "phone": {
+                        "$t": "303-744-8329"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "adoptions@hobocare.org"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80209"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7068"
+                    },
+                    "id": {
+                        "$t": "CO51"
+                    },
+                    "address1": {}
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-105.0018"
+                    },
+                    "name": {
+                        "$t": "Denver Animal Shelter"
+                    },
+                    "phone": {
+                        "$t": "720-913-1311 "
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {},
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80223"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.6981"
+                    },
+                    "id": {
+                        "$t": "CO52"
+                    },
+                    "address1": {
+                        "$t": "1241 W. Bayaud Avenue"
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-105.0018"
+                    },
+                    "name": {
+                        "$t": "Rocky Mountain Feline Rescue"
+                    },
+                    "phone": {
+                        "$t": "(303) 744-6076"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "rmfr2390@gmail.com"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80223"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.6981"
+                    },
+                    "id": {
+                        "$t": "CO90"
+                    },
+                    "address1": {
+                        "$t": "2390 S. Delaware St."
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-105.0614"
+                    },
+                    "name": {
+                        "$t": "Cat Care Society"
+                    },
+                    "phone": {
+                        "$t": "303-239-9680"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "shelterinfo@catcaresociety.org"
+                    },
+                    "city": {
+                        "$t": "Lakewood"
+                    },
+                    "zip": {
+                        "$t": "80214"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7472"
+                    },
+                    "id": {
+                        "$t": "CO06"
+                    },
+                    "address1": {
+                        "$t": "5787 W. 6th Ave"
+                    }
+                },
+                {
+                    "country": {
+                        "$t": "US"
+                    },
+                    "longitude": {
+                        "$t": "-104.9167"
+                    },
+                    "name": {
+                        "$t": "Good Sam Animal Rescue"
+                    },
+                    "phone": {
+                        "$t": "(303) 222-0081"
+                    },
+                    "state": {
+                        "$t": "CO"
+                    },
+                    "address2": {},
+                    "email": {
+                        "$t": "info@home2homepets.org"
+                    },
+                    "city": {
+                        "$t": "Denver"
+                    },
+                    "zip": {
+                        "$t": "80220"
+                    },
+                    "fax": {},
+                    "latitude": {
+                        "$t": "39.7339"
+                    },
+                    "id": {
+                        "$t": "CO60"
+                    },
+                    "address1": {
+                        "$t": "PO Box 202005"
+                    }
+                }
+            ]
+        },
+        "header": {
+            "timestamp": {
+                "$t": "2018-04-18T16:19:25Z"
+            },
+            "status": {
+                "message": {},
+                "code": {
+                    "$t": "100"
+                }
+            },
+            "version": {
+                "$t": "0.1"
+            }
+        },
+        "@xsi:noNamespaceSchemaLocation": "http://api.petfinder.com/schemas/0.9/petfinder.xsd"
+    }
+}

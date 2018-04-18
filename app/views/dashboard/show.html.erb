@@ -44,7 +44,7 @@
           <br>
           <p>Animal shelters are very important because they care for abandoned or neglected animals. They provide temporary homes for animals on the street. They also provide heath for sick wounded animals.</p>
           <div id="report-form">
-            <%= form_for @current_user, method: :PUT do |f| %>
+            <%= form_for current_user, method: :PUT do |f| %>
               <%= f.label :zipcode %>
               <br>
               <%= f.number_field :zipcode %>

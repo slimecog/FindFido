@@ -1,0 +1,92 @@
+{
+    "results": [
+        {
+            "address_components": [
+                {
+                    "long_name": "1333",
+                    "short_name": "1333",
+                    "types": [
+                        "street_number"
+                    ]
+                },
+                {
+                    "long_name": "17th Street",
+                    "short_name": "17th St",
+                    "types": [
+                        "route"
+                    ]
+                },
+                {
+                    "long_name": "Central",
+                    "short_name": "Central",
+                    "types": [
+                        "neighborhood",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Denver",
+                    "short_name": "Denver",
+                    "types": [
+                        "locality",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Denver County",
+                    "short_name": "Denver County",
+                    "types": [
+                        "administrative_area_level_2",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "Colorado",
+                    "short_name": "CO",
+                    "types": [
+                        "administrative_area_level_1",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "United States",
+                    "short_name": "US",
+                    "types": [
+                        "country",
+                        "political"
+                    ]
+                },
+                {
+                    "long_name": "80202",
+                    "short_name": "80202",
+                    "types": [
+                        "postal_code"
+                    ]
+                }
+            ],
+            "formatted_address": "1333 17th St, Denver, CO 80202, USA",
+            "geometry": {
+                "location": {
+                    "lat": 39.7503686,
+                    "lng": -104.9964951
+                },
+                "location_type": "RANGE_INTERPOLATED",
+                "viewport": {
+                    "northeast": {
+                        "lat": 39.7517175802915,
+                        "lng": -104.9951461197085
+                    },
+                    "southwest": {
+                        "lat": 39.7490196197085,
+                        "lng": -104.9978440802915
+                    }
+                }
+            },
+            "place_id": "EiMxMzMzIDE3dGggU3QsIERlbnZlciwgQ08gODAyMDIsIFVTQQ",
+            "types": [
+                "street_address"
+            ]
+        }
+    ],
+    "status": "OK"
+}

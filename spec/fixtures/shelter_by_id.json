@@ -1,0 +1,57 @@
+{
+    "@encoding": "iso-8859-1",
+    "@version": "1.0",
+    "petfinder": {
+        "@xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+        "shelter": {
+            "country": {
+                "$t": "US"
+            },
+            "longitude": {
+                "$t": "-104.9842"
+            },
+            "name": {
+                "$t": "Saving Dobermankind Animal Rescue"
+            },
+            "phone": {
+                "$t": "(720) 722-4277"
+            },
+            "state": {
+                "$t": "CO"
+            },
+            "address2": {},
+            "email": {
+                "$t": "hookedondobies@gmail.com"
+            },
+            "city": {
+                "$t": "Denver"
+            },
+            "zip": {
+                "$t": "80250"
+            },
+            "fax": {},
+            "latitude": {
+                "$t": "39.7392"
+            },
+            "id": {
+                "$t": "CO453"
+            },
+            "address1": {}
+        },
+        "header": {
+            "timestamp": {
+                "$t": "2018-04-18T17:28:19Z"
+            },
+            "status": {
+                "message": {},
+                "code": {
+                    "$t": "100"
+                }
+            },
+            "version": {
+                "$t": "0.1"
+            }
+        },
+        "@xsi:noNamespaceSchemaLocation": "http://api.petfinder.com/schemas/0.9/petfinder.xsd"
+    }
+}
